@@ -2,25 +2,106 @@ import React,{useState,useEffect,useRef} from "react"
 import "./App.css"
 
 export default ()=>{
+        const readyMovies = [
+            {
+                title:"Mr. Robot",
+                myUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fhindmovie.cc%2Fwp-content%2Fuploads%2F2021%2F05%2FMr.-Robot-Season-1-Dual-Audio.jpg&f=1&nofb=1",
+                description:"Mr. Robot is an American drama thriller television series created by Sam Esmail for USA Network. It stars Rami Malek as Elliot Alderson, a cybersecurity engineer and hacker with social anxiety disorder and clinical depression. Elliot is recruited by an insurrectionary anarchist known as ",
+                rating:5
+            }
+            ,
+            {
+                title:"Saw",
+                myUrl: "http://images6.fanpop.com/image/photos/40900000/Saw-Movie-Poster-saw-40979894-1629-2200.jpg",
+                description: "Saw is a 2004 American horror film directed by James Wan, in his feature directorial debut, and written by Leigh Whannell from a story by Wan and Whannell. It is the first installment in the Saw film series, and stars",
+                rating: 3
+            }
+            ,
+            {
+                title:"How I Met Your Mother",
+                myUrl: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.tvposter.net%2Fposters%2Fhow_i_met_your_mother_2005_4157_poster.jpg&f=1&nofb=1",
+                description: "How I Met Your Mother is an American sitcom, created by Craig Thomas and Carter Bays for CBS. The series, which ran from 2005 to 2014, follows the main character, Ted Mosby, and his group of friends in New York City's Manhattan.",
+                rating: 4
+            }
+            ,
+            {
+                title:"Dark Web: Cicada 3301",
+                myUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi2.wp.com%2Fwww.iconvsicon.com%2Fwp-content%2Fuploads%2F2021%2F01%2FDark-Web-Cicada-3301-scaled.jpg%3Ffit%3D1791%252C2560%26ssl%3D1&f=1&nofb=1",
+                description: "Dark Web: Cicada 3301 is an action-comedy thriller film directed by Alan Ritchson, in his directorial debut, who co-wrote the script with Joshua Montcalm. Inspired by the eponymous organization, it stars Jack Kesy, Conor Leslie, Ron Funches, and Ritchson.",
+                rating: 2
+            }
+            ,
+            {
+                title:"Who Am I",
+                myUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cinemamontreal.com%2Fimages%2Fposters%2F1000x1500%2F0%2Fwho-am-i-kein-system-ist-sicher-2014-orig-poster.jpg&f=1&nofb=1",
+                description: "Who Am I is a 2014 German techno-thriller film directed by Baran bo Odar. It is centered on a computer hacker group in Berlin geared towards global fame. It was screened in the Contemporary World Cinema section at the 2014 Toronto International Film Festival. The film was shot in Berlin and Rostock.",
+                rating: 5
+            }
+            ,
+            {
+                title:"Fight club ",
+                myUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.8lCIiP60Wbg2yd44SR0N9QHaLH%26pid%3DApi&f=1",
+                description: "Fight Club is a 1999 American film directed by David Fincher and starring Brad Pitt, Edward Norton, and Helena Bonham Carter. It is based on the 1996 novel of the same name by Chuck Palahniuk. Norton plays the unnamed narrator, who is discontented with his white-collar job",
+                rating: 4
+            }
+            ,
+            {
+                title:"Mortal Kombat",
+                myUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.8oQqUx1pTmgS_9coOSATCQHaK-%26pid%3DApi&f=1",
+                description: "Mortal Kombat est un film américano-australien réalisé par Simon McQuoid et sorti en 2021. C'est une adaptation cinématographique de la série de jeux vidéo Mortal Kombat, et plus précisément de l'incarnation de la franchise développée par NetherRealm Studios",
+                rating: 5
+            }
+            ,
+            {
+                title:"Baby Driver",
+                myUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.4xbxBLAz4Y39obqwQAcEiAHaJ4%26pid%3DApi&f=1",
+                description: "Baby Driver is a 2017 action film written and directed by Edgar Wright. It stars Ansel Elgort as a getaway driver seeking freedom from a life of crime with his girlfriend Debora. Kevin Spacey, Jon Hamm, Eiza González, Jamie Foxx, and Jon Bernthal appear in supporting roles.",
+                rating: 5
+            }
+        ]
+        const [movie,setMovie] = useState([...readyMovies])
+        
+        const title = useRef("")
+        const description = useRef("")
+        const rating = useRef(null)
+        const myUrl = useRef ("")
+
+        const addMovie = ()=>{
+            setMovie(x=>[...x,{title:title.current.value,myUrl:myUrl.current.value,description:description.current.value,rating:parseInt(rating.current.value)}])
+            console.log(
+                title.current.value,
+                description.current.value,
+                rating.current.value,
+                myUrl.current.value
+
+            )
+        }
     return(
         <>
-            <div className="MovieList">
-                <MyMovieCard myUrl="/img/Who_am_I_movie_poster.jpg"title="Who Am I" description={"Who Am I is a 2014 German techno-thriller film directed by Baran bo Odar. It is centered on a computer hacker group in Berlin geared towards global fame. It was screened in the Contemporary World Cinema section at the 2014 Toronto International Film Festival. The film was shot in Berlin and Rostock. Because of its storyline and some elements"} rating={4}/>
-                <MyMovieCard myUrl="/img/Mr.Robot.jpg" title="Mr.Robot" description={"Mr. Robot est une série télévisée américaine en 45 épisodes d'environ 45 minutes créée par Sam Esmail et diffusée entre le 24 juin 2015 et le 22 décembre 2019 sur USA Network"} rating={5}/>
-                <MyMovieCard myUrl="/img/himym.jpg" title="How I met Your Mother" description={"How I Met Your Mother is an American sitcom, created by Craig Thomas and Carter Bays for CBS. The series, which ran from 2005 to 2014, follows the main character, Ted Mosby, and his group of friends in New York City's Manhattan"} rating={5}/>
+                <div className="MovieList">
+                    {movie.map(x=><MyMovieCard {...x}/>)}
+                </div>
+                <div className="Addmovie">
+                    <input ref={title} type="text" placeholder="title" /><br />
+                    <input ref={description} type="text" placeholder="description" /><br />
+                    <select ref={rating} name="rating"  id="">
+                        <option value="5">{"⭐️".repeat(5)}</option>
+                        <option value="4">{"⭐️".repeat(4)}</option>
+                        <option value="3">{"⭐️".repeat(3)}</option>
+                        <option value="3">{"⭐️".repeat(2)}</option>
+                        <option value="1">⭐️</option>
+                    </select><br />
+                    <input ref={myUrl} type="text" placeholder="poster"/><br />
 
-                <MyMovieCard myUrl="/img/3301.jpg" title={"Dark Web: Cicada 3301"} description={"Dark Web: Cicada 3301 is an action-comedy thriller film directed by Alan Ritchson, in his directorial debut, who co-wrote the script with Joshua Montcalm. Inspired by the eponymous organization, it stars Jack Kesy, Conor Leslie, Ron Funches, and Ritchson"} rating={2}/>
-                <MyMovieCard myUrl="/img/jumanji.jpg" title={"Jumanji"} description={"Jumanji is an American media franchise, based on the children's books Jumanji and its sequel Zathura, written by Chris Van Allsburg. The first film was produced by TriStar Pictures, and subsequent films by Columbia Pictures, both subsidiaries of Sony Pictures"} rating={4}/>
-                <MyMovieCard myUrl="/img/7.jpg" title={"Miracle in Cell No. 7"} description={"Miracle in Cell No. 7 is a 2019 Turkish drama film directed by Mehmet Ada Öztekin. It is an official adaptation of the 2013 South Korean comedy-drama film Miracle in Cell No. 7 using the same premise, but with significant changes in story, characters, and tone."} rating={5}/>
-                <MyMovieCard myUrl="/img/boyka.jpg" title={"Boyka: Undisputed"} description={"Boyka: Undisputed is a 2017 American martial arts film directed by Isaac Florentine, and written by David White and Tony Mosher with a story by Boaz Davidson. It is the sequel to the 2010 boxing film Undisputed III: Redemption. Scott Adkins reprises his role as Yuri Boyka"} rating={3}/>
-                <MyMovieCard myUrl="/img/saw.jpg" rating={4} title={"Saw"} description={"Saw is a 2004 American horror film directed by James Wan, in his feature directorial debut, and written by Leigh Whannell from a story by Wan and Whannell. It is the first installment in the Saw film series, and stars Whannell, Cary Elwes, Danny Glover, Monica Potter, Michael Emerson, Ken Leung, and Tobin Bell"}/>
+                    <button onClick={addMovie}>Add movie</button>
+                </div>
 
-            </div>
         </>
     )
 }
 
 const MyMovieCard = ({myUrl,title,description,rating})=>{
+
 const MyStyle = {background:`url(${myUrl}) center`,backgroundRepeat:"no-repeat",backgroundSize:"cover"};
 const [myAnimation,setAnimation] = useState(null);
 
@@ -30,9 +111,10 @@ const [myAnimation,setAnimation] = useState(null);
                 <div className="def" style={myAnimation}>
                     <h1><b>{title}</b></h1>
                         <p><b>{description}</b></p>
-                    <h1>{"⭐️".repeat(rating)}</h1>
+                    <h1>{"⭐️".repeat(rating<=5?rating:rating=5)}</h1>
                 </div>
             </div>
         </>
     )
 }
+

@@ -1,5 +1,13 @@
-body{
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,body{
     background: black;
+    height: 100%;
+    width: 100%;
 }
 .myCard{
     height:400px;
@@ -28,5 +36,20 @@ body{
 .MovieList{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+}
+
+.Addmovie{
+    padding: 0 20%;
+    height: 300px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+input,option{
+    height: 30px;
+    text-align: center;
 }
