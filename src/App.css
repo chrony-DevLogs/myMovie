@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 html,body{
@@ -52,4 +53,15 @@ html,body{
 input,option{
     height: 30px;
     text-align: center;
+}
+
+.Trailer {
+    text-align: center;
+}
+
+.Trailer > button {
+    color: black;
+    margin: 5%;
+    height: 30px;
+    width: 100px;
 }
